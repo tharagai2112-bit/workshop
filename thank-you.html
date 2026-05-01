@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Tech Workshop Series 26</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            padding: 60px 40px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .logo-section {
+            margin-bottom: 30px;
+        }
+
+        .thank-you-logo {
+            max-width: 140px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounce {
+            0% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #4caf50;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 50px;
+            color: white;
+            animation: bounce 0.6s ease-out;
+        }
+
+        h1 {
+            color: #4a3a8a;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .thank-you-message {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .confirmation-details {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid #4a3a8a;
+            text-align: left;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 0.95em;
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #4a3a8a;
+        }
+
+        .detail-value {
+            color: #555;
+        }
+
+        .confirmation-number {
+            background-color: #4a3a8a;
+            color: white;
+            padding: 12px;
+            border-radius: 4px;
+            margin: 20px 0;
+            font-weight: bold;
+            word-break: break-all;
+        }
+
+        .next-steps {
+            background-color: #f0e8ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .next-steps h3 {
+            color: #4a3a8a;
+            margin-bottom: 15px;
+        }
+
+        .next-steps ol {
+            margin-left: 20px;
+            color: #555;
+        }
+
+        .next-steps li {
+            margin-bottom: 10px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #4a3a8a;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #3d2f73;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(74, 58, 138, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: #ddd;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background-color: #ccc;
+            transform: translateY(-2px);
+        }
+
+        .contact-info {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+
+        .contact-info strong {
+            color: #4a3a8a;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 40px 20px;
+            }
+
+            h1 {
+                font-size: 1.6em;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .detail-row {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .thank-you-logo {
+                max-width: 110px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .thank-you-logo {
+                max-width: 90px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-section">
+            <img src="logo.png" alt="International VFX Academy Logo" class="thank-you-logo">
+        </div>
+        <div class="success-icon">✓</div>
+        
+        <h1>Thank You for Registration!</h1>
+        
+        <p class="thank-you-message">
+            Your registration for Tech Workshop Series 26 has been successfully received. 
+            We're excited to have you join us!
+        </p>
+
+        <div class="confirmation-details">
+            <div class="detail-row">
+                <span class="detail-label">Registration Confirmation:</span>
+                <span class="detail-value" id="confirmationNum">Generating...</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Full Name:</span>
+                <span class="detail-value" id="displayName">-</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Email Address:</span>
+                <span class="detail-value" id="displayEmail">-</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Phone Number:</span>
+                <span class="detail-value" id="displayPhone">-</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Workshop Selected:</span>
+                <span class="detail-value" id="displayWorkshop">-</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Date & Time:</span>
+                <span class="detail-value" id="displayTime">-</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Amount to Pay:</span>
+                <span class="detail-value" id="displayAmount">₹ 2,800.00</span>
+            </div>
+        </div>
+
+        <div class="next-steps">
+            <h3>📋 Next Steps:</h3>
+            <ol>
+                <li>A confirmation email has been sent to your registered email address</li>
+                <li>Complete your payment before May 15th, 2026</li>
+                <li>You will receive workshop details and login credentials via email</li>
+                <li>Join on time on May 16th, 2026 at 10:00 AM IST</li>
+                <li>Bring your confirmation number and valid ID to the venue</li>
+            </ol>
+        </div>
+
+        <div class="action-buttons">
+            <button class="btn btn-primary" onclick="window.print()">🖨️ Print Confirmation</button>
+            <a href="workshop.html" class="btn btn-secondary">← Back to Workshop Page</a>
+        </div>
+
+        <div class="contact-info">
+            <p><strong>For any queries, please contact:</strong></p>
+            <p>📧 Email: internationalvfx@gmail.com</p>
+            <p>📱 Phone: +91-70103 15231</p>
+            <p style="margin-top: 15px; font-size: 0.85em; color: #999;">
+                Tech Workshop Series 26 by International VFX Academy<br>
+                Organized in collaboration with eDC IIT Delhi<br>
+                Venue: IIT MADRAS RESEARCH PARK, CHENNAI
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Workshop name mapping
+        const workshopNames = {
+            'ai': 'GENERATIVE & AGENTIC AI (16-17 MAY 2026)',
+            'filmmaking': 'AI IN FILM MAKING (16-17 MAY 2026)',
+            'cyber': 'ETHICAL HACKING WITH CYBER SECURITY (16-17 MAY 2026)',
+            'bioinformatics': 'AI & BIOINFORMATICS (16-17 MAY 2026)'
+        };
+
+        function displayConfirmation() {
+            // Get registration data from localStorage
+            const registrationData = localStorage.getItem('registrationData');
+            
+            if (!registrationData) {
+                // If no data, redirect back to registration
+                setTimeout(() => {
+                    window.location.href = 'workshop.html';
+                }, 2000);
+                return;
+            }
+
+            const data = JSON.parse(registrationData);
+
+            // Generate confirmation number
+            const confirmationNum = 'CONF-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+            
+            // Display all information
+            document.getElementById('confirmationNum').textContent = confirmationNum;
+            document.getElementById('displayName').textContent = data.fullname;
+            document.getElementById('displayEmail').textContent = data.email;
+            document.getElementById('displayPhone').textContent = data.phone;
+            document.getElementById('displayWorkshop').textContent = workshopNames[data.workshop] || 'Selected Workshop';
+            document.getElementById('displayTime').textContent = data.timestamp;
+
+            // Clear localStorage after displaying
+            localStorage.removeItem('registrationData');
+        }
+
+        // Display confirmation when page loads
+        window.addEventListener('load', displayConfirmation);
+    </script>
+</body>
+</html>
